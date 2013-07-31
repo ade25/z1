@@ -1,5 +1,5 @@
 {
-  "server": "zope10",
+  "server": "zope1",
   "servername": "${hosts:public}",
   "sites": [
     {
