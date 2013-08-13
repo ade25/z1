@@ -18,7 +18,7 @@ env.webserver = '/opt/webserver/buildout.webserver'
 env.code_root = '/opt/webserver/buildout.webserver'
 env.host_root = '/opt/sites'
 
-env.hosts = ['4zu1']
+env.hosts = ['zope1']
 env.hosted_sites = [
     'asg',
     'reiter',
@@ -66,6 +66,13 @@ def restart_nginx():
 
 
 @task
+def nginx(*cmd):
+    """ Nginx (start|stop|status) command """
+    with cd(env.webserver):
+        run('nice bin/supervisorctl ' + ' '.join(cmd) + ' nginx')
+
+
+@task
 def restart_varnish():
     """ Restart Varnish """
     controls.restart_varnish()
@@ -75,6 +82,13 @@ def restart_varnish():
 def restart_haproxy():
     """ Restart HAProxy """
     controls.restart_haproxy()
+
+
+@task
+def ctl(*cmd):
+    """Runs an arbitrary supervisorctl command."""
+    with cd(env.webserver):
+        run('nice bin/supervisorctl ' + ' '.join(cmd))
 
 
 @task
