@@ -18,31 +18,31 @@ env.webserver = '/opt/webserver/buildout.webserver'
 env.code_root = '/opt/webserver/buildout.webserver'
 env.host_root = '/opt/sites'
 
-env.hosts = ['${fabric:host}']
+env.hosts = ['4zu1']
 env.hosted_sites = [
-    '${sites:zope1}',
-    '${sites:zope2}',
-    '${sites:zope3}',
-    '${sites:zope4}',
-    '${sites:zope5}',
-    '${sites:zope6}',
-    '${sites:zope7}',
-    '${sites:zope8}',
-    '${sites:zope9}',
-    '${sites:zope10}',
+    'asg',
+    'reiter',
+    'teama3',
+    'ahlt',
+    'androschin',
+    'dichtl',
+    'existenz',
+    'rms',
+    'langer',
+    'anna',
 ]
 
 env.hosted_sites_locations = [
-    '/opt/sites/${sites:zope1}/buildout.${sites:zope1}',
-    '/opt/sites/${sites:zope2}/buildout.${sites:zope2}',
-    '/opt/sites/${sites:zope3}/buildout.${sites:zope3}',
-    '/opt/sites/${sites:zope4}/buildout.${sites:zope4}',
-    '/opt/sites/${sites:zope5}/buildout.${sites:zope5}',
-    '/opt/sites/${sites:zope6}/buildout.${sites:zope6}',
-    '/opt/sites/${sites:zope7}/buildout.${sites:zope7}',
-    '/opt/sites/${sites:zope8}/buildout.${sites:zope8}',
-    '/opt/sites/${sites:zope9}/buildout.${sites:zope9}',
-    '/opt/sites/${sites:zope10}/buildout.${sites:zope10}',
+    '/opt/sites/asg/buildout.asg',
+    '/opt/sites/reiter/buildout.reiter',
+    '/opt/sites/teama3/buildout.teama3',
+    '/opt/sites/ahlt/buildout.ahlt',
+    '/opt/sites/androschin/buildout.androschin',
+    '/opt/sites/dichtl/buildout.dichtl',
+    '/opt/sites/existenz/buildout.existenz',
+    '/opt/sites/rms/buildout.rms',
+    '/opt/sites/langer/buildout.langer',
+    '/opt/sites/anna/buildout.anna',
 ]
 
 
@@ -66,13 +66,6 @@ def restart_nginx():
 
 
 @task
-def nginx(*cmd):
-    """Runs an arbitrary supervisorctl command."""
-    with cd(env.webserver):
-        run('nice bin/supervisorctl ' + ' '.join(cmd) + ' nginx')
-
-
-@task
 def restart_varnish():
     """ Restart Varnish """
     controls.restart_varnish()
@@ -82,13 +75,6 @@ def restart_varnish():
 def restart_haproxy():
     """ Restart HAProxy """
     controls.restart_haproxy()
-
-
-@task
-def ctl(*cmd):
-    """Runs an arbitrary supervisorctl command."""
-    with cd(env.webserver):
-        run('nice bin/supervisorctl ' + ' '.join(cmd))
 
 
 @task
