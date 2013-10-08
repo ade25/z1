@@ -6,7 +6,7 @@
       "title": "asg",
       "type": "plone",
       "port": "8401",
-      "url": "asg.kreativkombinat.de"
+      "url": "asg-analytik.de"
     },
     {
       "title": "reiter",
@@ -61,6 +61,18 @@
       "type": "plone",
       "port": "8410",
       "url": "annaholzhauser.de"
+    }
+    {
+      "title": "fsp",
+      "type": "plone",
+      "port": "8411",
+      "url": "fremdsprachenpraxis.de"
+    }
+    {
+      "title": "polymentor",
+      "type": "plone",
+      "port": "8412",
+      "url": "polymentor.eu"
     }
   ]
 }
