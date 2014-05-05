@@ -141,6 +141,44 @@ congfig file by adding a single line at the bottom of the file
 include ${locations:config}/${sites:zopeX}.conf;
 ````
 
+Update /buildout.d/templates/serverdetails.json
+-----------------------------------------------
+
+Add the new vhost to the server status info file we will use in "wigo.sqapp"
+to display host details.
+
+```
+...
+{
+    "title": "${sites:zopeX}",
+    "type": "plone",
+    "port": "${ports:zopeX}",
+    "url": "${hosts:zopeX}"
+}
+```
+
+*Note:* you can simply copy the last server block in the template file, but
+make sure that you separate serverblocks via `,`. The correct syntax
+(simplified) would be:
+
+``` json
+{
+  "server": "zope10",
+  "servername": "${hosts:public}",
+  "sites": [
+    {
+      zope1 block
+    },
+    {
+      zope2 block
+    },
+    {
+      zope3 block
+    }
+  ]
+}
+```
+
 
 Deploy the new configuration
 =============================
