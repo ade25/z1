@@ -27,3 +27,8 @@ etc/vhosts/*.conf
 src/ade25.fabfiles
 .DS_Store
 fabfile.py
+.Python
+# Enable nginx specific settings
+!cache_control_assets.conf
+!disable_logging.conf
+!proxy_settings.conf
