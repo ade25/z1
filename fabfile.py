@@ -67,7 +67,7 @@ def restart_nginx():
 
 @task
 def nginx(*cmd):
-    """ Nginx (start|stop|status) command """
+    """Run Nginx command (start|stop|status)"""
     with cd(env.webserver):
         run('nice bin/supervisorctl ' + ' '.join(cmd) + ' nginx')
 
