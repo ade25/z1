@@ -6,12 +6,6 @@
   "haproxy": "${component-versions:haproxy}",
   "sites": [
     {
-      "title": "${site8:sitename}",
-      "type": "plone",
-      "port": "${site8:zope-port}",
-      "url": "${site8:servername}"
-    },
-    {
       "title": "${site13:sitename}",
       "type": "plone",
       "port": "${site13:zope-port}",
